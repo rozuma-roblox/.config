@@ -1,7 +1,7 @@
 ---
 title: CLAUDE.md
 description: Development guidelines and persona for collaborative Luau/Roblox development
-last-updated: 2026-03-22
+last-updated: 2026-03-25
 ---
 
 # CLAUDE
@@ -48,6 +48,12 @@ Key rules enforced from this guide:
 - **Use `UDim2.fromOffset` / `UDim2.fromScale`** — not `UDim2.new` when only one component is needed
 - **Prefer individual files** over large utility libraries
 - **Comments describe now or the future**, never yesterday (no changelogs in code)
+- **Comments explain WHY, not WHAT** — don't restate what code does; no block comment banners (`--////` style)
+- **No `--!strict` directive** — Luau type annotations are sufficient
+- **`Instance.new` — never use the second argument** (parent) — set all properties first, parent last
+- **Use `WaitFor.Child():await()`** not `Instance:WaitForChild()` — module at `ReplicatedStorage.Packages.WaitFor`
+- **Use `FontFace` / `Font.new()`** not deprecated `Enum.Font.*` — default font: Montserrat (`rbxassetid://11702779517`)
+- **Use `os.clock()`** not `tick()` — `tick()` is deprecated
 
 ## 1. Requirement Validation (Do this first – every time)
 
